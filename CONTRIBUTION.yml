@@ -1,0 +1,78 @@
+---
+
+name: "MOM-Brain contribution process file"
+
+description: |
+    This file describes who runs the MOM-Brain project and how.
+    This is a living document - if you see something out of date or missing, speak up!
+
+    It is structured do be consumable by both humans and programs
+    To extract it's contents use any YAML-compliant parser
+
+rules:
+    - Do not violate policy
+
+policy:
+    - action: accept pull request if it affects this file
+      performed_only_if:
+        - who: CI
+          state: CI passed
+
+        - who: `ptl`
+          state: add comment "+1"
+
+        - who: more than 50% of `core`
+          state:  add comment "+1"
+
+        - OR:
+            - who: nobody from `core`
+              state: add comment "-1"
+
+            - who: more than 75% of `core`
+              state: add comment "+1"
+
+    - action: accept pull request if it affect any file in repo
+      performed_only_if:
+        - who: CI
+          state: passed
+
+        - who: `ptl`
+          state: didn't add comment "-1"
+
+        - who: more than 50% of `core`
+          state: add comment "+1"
+
+        - OR:
+            - who: nobody from `core`
+              state: add comment "-1"
+
+            - who: more than 75% of `core`
+              state: add comment "+1"
+
+    - action: removal of member from team
+      performed_only_if:
+        - OR:
+            - who: team member
+              state: Violation of rules from more than 2 times / year
+            - who: team member
+              state: No activity for more than 1 month
+            - who: team member
+              state: Team member wants to leave team
+
+teams:
+    ptl:
+        description: "Project team lead and community manager"
+        members:
+            - name: Boris Pavlovic
+              email: bpavlovic@mirantis.com
+    core:
+        description: |
+            Core maintainers of project that reviews changes in project,
+            provide feedback, help newbies and actually vote whatever pull
+            request should be accepted or not
+        members:
+            - name: Boris Pavlovic
+              email: bpavlovic@mirantis.com
+
+            - name: Chris Keene
+              email: ckeene@mirantis.com
