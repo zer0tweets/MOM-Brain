@@ -18,17 +18,17 @@ policy:
         - who: CI
           state: CI passed
 
-        - who: `ptl`
+        - who: ptl
           state: add comment "+1"
 
-        - who: more than 50% of `core`
+        - who: more than 50% of core
           state:  add comment "+1"
 
         - OR:
-            - who: nobody from `core`
+            - who: nobody from core
               state: add comment "-1"
 
-            - who: more than 75% of `core`
+            - who: more than 75% of core
               state: add comment "+1"
 
     - action: accept pull request if it affect any file in repo
@@ -36,17 +36,17 @@ policy:
         - who: CI
           state: passed
 
-        - who: `ptl`
+        - who: ptl
           state: didn't add comment "-1"
 
-        - who: more than 50% of `core`
+        - who: more than 50% of core
           state: add comment "+1"
 
         - OR:
-            - who: nobody from `core`
+            - who: nobody from core
               state: add comment "-1"
 
-            - who: more than 75% of `core`
+            - who: more than 75% of core
               state: add comment "+1"
 
     - action: removal of member from team
