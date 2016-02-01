@@ -1,0 +1,15 @@
+---
+
+name: "MOM-Brain project objectives file"
+
+description: |
+    This file describes the objectives for the MOM-Brain project.
+    This is a living document - if you see something out of date or missing, speak up!
+    It is structured do be consumable by both humans and programs
+    To extract it's contents use any YAML-compliant parser
+
+objectives:
+    - continuous improvement: harness the power of community to identify and resolve barriers to adoption of cloud.
+    - reliability: make it easy to run a cloud without interruption.
+    - business value: make it easy to onboard workloads to cloud by giving developers powerful tools to accelerate the entire software development lifecycle.
+    - reference implementation: run reference architecture and implement best practice operations in a live cloud environment running Mirantis software workloads.
